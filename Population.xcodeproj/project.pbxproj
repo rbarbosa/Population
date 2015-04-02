@@ -81,13 +81,11 @@
 		F49928021ACD9F4F001EBE47 /* Population */ = {
 			isa = PBXGroup;
 			children = (
-				F49928071ACD9F4F001EBE47 /* AppDelegate.h */,
-				F49928081ACD9F4F001EBE47 /* AppDelegate.m */,
-				F499280A1ACD9F4F001EBE47 /* ViewController.h */,
-				F499280B1ACD9F4F001EBE47 /* ViewController.m */,
-				F499280D1ACD9F4F001EBE47 /* Main.storyboard */,
-				F49928101ACD9F4F001EBE47 /* Images.xcassets */,
-				F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */,
+				F499285D1ACDA175001EBE47 /* Models */,
+				F499285E1ACDA18A001EBE47 /* Views */,
+				F499285F1ACDA1A3001EBE47 /* View Controllers */,
+				F499282A1ACDA021001EBE47 /* Controllers */,
+				F49928601ACDA24C001EBE47 /* Resources */,
 				F49928031ACD9F4F001EBE47 /* Supporting Files */,
 			);
 			path = Population;
@@ -117,6 +115,60 @@
 				F499281E1ACD9F4F001EBE47 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F49928291ACD9FAD001EBE47 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F49928071ACD9F4F001EBE47 /* AppDelegate.h */,
+				F49928081ACD9F4F001EBE47 /* AppDelegate.m */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		F499282A1ACDA021001EBE47 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F49928291ACD9FAD001EBE47 /* App Delegate */,
+			);
+			name = Controllers;
+			path = Classes/Controllers;
+			sourceTree = "<group>";
+		};
+		F499285D1ACDA175001EBE47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			path = Classes/Models;
+			sourceTree = "<group>";
+		};
+		F499285E1ACDA18A001EBE47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = Classes/Views;
+			sourceTree = "<group>";
+		};
+		F499285F1ACDA1A3001EBE47 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F499280A1ACD9F4F001EBE47 /* ViewController.h */,
+				F499280B1ACD9F4F001EBE47 /* ViewController.m */,
+			);
+			name = "View Controllers";
+			path = "Classes/View Controllers";
+			sourceTree = "<group>";
+		};
+		F49928601ACDA24C001EBE47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F499280D1ACD9F4F001EBE47 /* Main.storyboard */,
+				F49928101ACD9F4F001EBE47 /* Images.xcassets */,
+				F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
