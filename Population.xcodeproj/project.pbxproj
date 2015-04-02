@@ -14,7 +14,7 @@
 		F49928111ACD9F4F001EBE47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49928101ACD9F4F001EBE47 /* Images.xcassets */; };
 		F49928141ACD9F4F001EBE47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */; };
 		F49928201ACD9F4F001EBE47 /* PopulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F499281F1ACD9F4F001EBE47 /* PopulationTests.m */; };
-		F49928631ACDA3F4001EBE47 /* CTCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928621ACDA3F4001EBE47 /* CTCountry.m */; };
+		F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928621ACDA3F4001EBE47 /* CHCountry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		F49928191ACD9F4F001EBE47 /* PopulationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopulationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F499281E1ACD9F4F001EBE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F499281F1ACD9F4F001EBE47 /* PopulationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopulationTests.m; sourceTree = "<group>"; };
-		F49928611ACDA3F4001EBE47 /* CTCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCountry.h; sourceTree = "<group>"; };
-		F49928621ACDA3F4001EBE47 /* CTCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCountry.m; sourceTree = "<group>"; };
+		F49928611ACDA3F4001EBE47 /* CHCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountry.h; sourceTree = "<group>"; };
+		F49928621ACDA3F4001EBE47 /* CHCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +141,8 @@
 		F499285D1ACDA175001EBE47 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F49928611ACDA3F4001EBE47 /* CTCountry.h */,
-				F49928621ACDA3F4001EBE47 /* CTCountry.m */,
+				F49928611ACDA3F4001EBE47 /* CHCountry.h */,
+				F49928621ACDA3F4001EBE47 /* CHCountry.m */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -277,7 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F499280C1ACD9F4F001EBE47 /* ViewController.m in Sources */,
-				F49928631ACDA3F4001EBE47 /* CTCountry.m in Sources */,
+				F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */,
 				F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */,
 				F49928061ACD9F4F001EBE47 /* main.m in Sources */,
 			);
@@ -470,6 +470,7 @@
 				F49928251ACD9F4F001EBE47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F49928261ACD9F4F001EBE47 /* Build configuration list for PBXNativeTarget "PopulationTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +479,7 @@
 				F49928281ACD9F4F001EBE47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

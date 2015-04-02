@@ -1,5 +1,5 @@
 //
-//  CTCountry.h
+//  CHCountry.h
 //  Population
 //
 //  Created by Rui Pedro Barbosa on 02/04/15.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface CTCountry : NSObject
+@interface CHCountry : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSNumber *population;
