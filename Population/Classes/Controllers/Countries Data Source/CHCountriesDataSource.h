@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^countriesBlock)(BOOL success, NSArray *countries);
+
 @interface CHCountriesDataSource : NSObject
 
-- (void)createArrayWithCountries;
+//- (void)createArrayWithCountries;
+
+- (void)getCountriesWithCompletionBlock:(countriesBlock)completionBlock;
 
 @end

@@ -18,6 +18,8 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
 
 @property (nonatomic, strong) NSMutableArray *countries;
 
+@property (nonatomic, copy) countriesBlock countriesBlock;
+
 @end
 
 
@@ -36,7 +38,14 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
     return self;
 }
 
-
+- (void)getCountriesWithCompletionBlock:(countriesBlock)completionBlock
+{
+//    [self createArrayWithCountriesWithCompletionBlock:completionBlock];
+    
+    self.countriesBlock = completionBlock;
+    
+    [self createArrayWithCountries];
+}
 
 #pragma mark - Create array with countries
 
@@ -50,7 +59,25 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
                        if (success) {
                            NSArray *countries = json[@"worldpopulation"];
                            [self createCountriesWithArray:countries];
+                           self.countriesBlock(YES, self.countries);
                         }
+                   }];
+}
+
+- (void)createArrayWithCountriesWithCompletionBlock:(countriesBlock)countriesBlock
+{
+    // fetch json
+    // store in an array
+    NSURL *url = [NSURL URLWithString:CountriesURL];
+    [CHNetworking fetchJSONWithURL:url
+                   completionBlock:^(BOOL success, NSDictionary *json) {
+                       if (success) {
+                           NSArray *countries = json[@"worldpopulation"];
+                           [self createCountriesWithArray:countries];
+                           countriesBlock(YES, self.countries);
+                       } else {
+                           countriesBlock(NO, self.countries);
+                       }
                    }];
 }
 
