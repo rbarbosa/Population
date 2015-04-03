@@ -16,6 +16,7 @@
 		F49928141ACD9F4F001EBE47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */; };
 		F49928201ACD9F4F001EBE47 /* PopulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F499281F1ACD9F4F001EBE47 /* PopulationTests.m */; };
 		F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928621ACDA3F4001EBE47 /* CHCountry.m */; };
+		F4AB8B301ACEB1E800299267 /* CHCountriesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		F499281F1ACD9F4F001EBE47 /* PopulationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopulationTests.m; sourceTree = "<group>"; };
 		F49928611ACDA3F4001EBE47 /* CHCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountry.h; sourceTree = "<group>"; };
 		F49928621ACDA3F4001EBE47 /* CHCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountry.m; sourceTree = "<group>"; };
+		F4AB8B2E1ACEB1E800299267 /* CHCountriesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountriesDataSource.h; sourceTree = "<group>"; };
+		F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountriesDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,7 @@
 		F499282A1ACDA021001EBE47 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F4AB8B2D1ACEB05300299267 /* Countries Data Source */,
 				F49928291ACD9FAD001EBE47 /* App Delegate */,
 				F415D3A41ACDAC1B00193857 /* Networking */,
 			);
@@ -187,6 +191,15 @@
 				F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4AB8B2D1ACEB05300299267 /* Countries Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				F4AB8B2E1ACEB1E800299267 /* CHCountriesDataSource.h */,
+				F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */,
+			);
+			path = "Countries Data Source";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4AB8B301ACEB1E800299267 /* CHCountriesDataSource.m in Sources */,
 				F499280C1ACD9F4F001EBE47 /* ViewController.m in Sources */,
 				F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */,
 				F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */,

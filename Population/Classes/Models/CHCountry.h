@@ -13,13 +13,13 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSNumber *population;
-@property (nonatomic, assign) NSUInteger *rank;
+@property (nonatomic, assign) NSNumber *rank;
 @property (nonatomic, strong) NSURL *flagURL;
 
 
 - (instancetype)initWithName:(NSString *)name
                   population:(NSNumber *)population
-                        rank:(NSUInteger *)rank
+                        rank:(NSNumber *)rank
                      flagURL:(NSURL *)flagURL;
 
 @end
