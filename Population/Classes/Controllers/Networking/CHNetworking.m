@@ -9,6 +9,7 @@
 #import "CHNetworking.h"
 
 
+
 @implementation CHNetworking
 
 
@@ -57,4 +58,59 @@
     
 }
 
+
+
+
++ (void)fetchJSONWithURL:(NSURL *)url completionBlock:(completionBlock)completion
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    
+    NSURLSessionDataTask *task =
+    [session dataTaskWithRequest:request
+               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                   // Check response
+                   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                   if (httpResponse.statusCode == 200) {
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           [CHNetworking handleDataResults:data
+                                       withCompletionBlock:completion];
+                       });
+                   } else {
+                       // There was error
+                       NSString *body = [[NSString alloc] initWithData:data
+                                                              encoding:NSUTF8StringEncoding];
+                       // Create alert
+                       NSLog(@"ERROR!\n Received HTTP %ld: %@", (long)httpResponse.statusCode, body);
+                       
+                       completion(NO, nil);
+                   }
+               }];
+    
+    [task resume];
+    
+}
+
+
+
++ (void)handleDataResults:(NSData *)data withCompletionBlock:(completionBlock)completion
+{
+    NSError *JSONError;
+    
+    NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:&JSONError];
+    
+    if (response) {
+        NSLog(@"Response: %@", response);
+        completion(YES, response);
+    } else {
+        NSLog(@"ERROR: %@", JSONError);
+        completion(NO, nil);
+    }
+    
+}
 @end

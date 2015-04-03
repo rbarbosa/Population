@@ -20,8 +20,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSURL *url = [NSURL URLWithString:@"http://www.androidbegin.com/tutorial/jsonparsetutorial.txt"];
-    [CHNetworking fetchJSONWithURL:url];
+    NSURL *url = [NSURL URLWithString:@"http://www.androidbegin.com/tutorial/jsonparsetutorial.tx "];
+//    [CHNetworking fetchJSONWithURL:url];
+    [CHNetworking fetchJSONWithURL:url
+                   completionBlock:^(BOOL success, NSDictionary *json) {
+                       if (success) {
+                           NSLog(@"AppDelegate received: %@", json);
+                       } else {
+                           NSLog(@"AppDelegate received error!");
+                       }
+                   }];
     
     return YES;
 }

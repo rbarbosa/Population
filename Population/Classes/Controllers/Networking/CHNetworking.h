@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef void(^completionBlock)(BOOL success, NSDictionary *json);
+
+
 @interface CHNetworking : NSObject
 
 + (void)fetchJSONWithURL:(NSURL *)url;
+
++ (void)fetchJSONWithURL:(NSURL *)url completionBlock:(completionBlock)completion;
 
 @end
