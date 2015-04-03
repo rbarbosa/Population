@@ -22,7 +22,12 @@
     
     CHCountriesDataSource *countriesDataSource = [[CHCountriesDataSource alloc] init];
     
-    [countriesDataSource createArrayWithCountries];
+//    [countriesDataSource createArrayWithCountries];
+    [countriesDataSource getCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
+        if (success) {
+            NSLog(@"Countries: %@", countries);
+        }
+    }];
     
     return YES;
 }
