@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "CHNetworking.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.androidbegin.com/tutorial/jsonparsetutorial.txt"];
+    [CHNetworking fetchJSONWithURL:url];
+    
     return YES;
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F415D3A21ACDAC1400193857 /* CHNetworking.m */; };
 		F49928061ACD9F4F001EBE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928051ACD9F4F001EBE47 /* main.m */; };
 		F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928081ACD9F4F001EBE47 /* AppDelegate.m */; };
 		F499280C1ACD9F4F001EBE47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F499280B1ACD9F4F001EBE47 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F415D3A11ACDAC1400193857 /* CHNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNetworking.h; sourceTree = "<group>"; };
+		F415D3A21ACDAC1400193857 /* CHNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNetworking.m; sourceTree = "<group>"; };
 		F49928001ACD9F4F001EBE47 /* Population.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Population.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49928041ACD9F4F001EBE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49928051ACD9F4F001EBE47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F415D3A41ACDAC1B00193857 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F415D3A11ACDAC1400193857 /* CHNetworking.h */,
+				F415D3A21ACDAC1400193857 /* CHNetworking.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		F49927F71ACD9F4F001EBE47 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				F49928291ACD9FAD001EBE47 /* App Delegate */,
+				F415D3A41ACDAC1B00193857 /* Networking */,
 			);
 			name = Controllers;
 			path = Classes/Controllers;
@@ -279,6 +292,7 @@
 				F499280C1ACD9F4F001EBE47 /* ViewController.m in Sources */,
 				F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */,
 				F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */,
+				F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */,
 				F49928061ACD9F4F001EBE47 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
