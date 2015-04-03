@@ -10,4 +10,6 @@
 
 @interface CHCountriesDataSource : NSObject
 
+- (void)createArrayWithCountries;
+
 @end
