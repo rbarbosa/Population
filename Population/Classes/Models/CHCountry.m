@@ -14,7 +14,7 @@
 
 - (instancetype)initWithName:(NSString *)name
                   population:(NSNumber *)population
-                        rank:(NSUInteger *)rank
+                        rank:(NSNumber *)rank
                      flagURL:(NSURL *)flagURL
 {
     if (self = [super init]) {
