@@ -16,7 +16,7 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
 
 @interface CHCountriesDataSource ()
 
-@property (nonatomic, strong) NSMutableArray *countries;
+@property (nonatomic, strong) NSArray *countries;
 
 @property (nonatomic, copy) countriesBlock countriesBlock;
 
@@ -32,7 +32,7 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
 - (instancetype)init
 {
     if (self = [super init]) {
-        _countries = [NSMutableArray array];
+        _countries = [NSArray array];
     }
     
     return self;
@@ -83,6 +83,8 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
 
 - (void)createCountriesWithArray:(NSArray *)countries
 {
+    // Reset array with countries, otherwise will add same countries
+    NSMutableArray *newCountries = [NSMutableArray array];
     NSLog(@"%s [Line %d] countries: %@ ", __PRETTY_FUNCTION__, __LINE__,countries);
 
     [countries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -100,8 +102,11 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
                                                         rank:rank
                                                      flagURL:[NSURL URLWithString:flagURLString]];
         
-        [self.countries addObject:newCountry];
+        [newCountries addObject:newCountry];
     }];
+    
+    // Set the array with countries
+    self.countries = [NSArray arrayWithArray:newCountries];
 }
 
 
