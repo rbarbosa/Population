@@ -17,6 +17,7 @@
 		F49928201ACD9F4F001EBE47 /* PopulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F499281F1ACD9F4F001EBE47 /* PopulationTests.m */; };
 		F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928621ACDA3F4001EBE47 /* CHCountry.m */; };
 		F4AB8B301ACEB1E800299267 /* CHCountriesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */; };
+		F4AB8B341ACF29AF00299267 /* CHCountriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		F49928621ACDA3F4001EBE47 /* CHCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountry.m; sourceTree = "<group>"; };
 		F4AB8B2E1ACEB1E800299267 /* CHCountriesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountriesDataSource.h; sourceTree = "<group>"; };
 		F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountriesDataSource.m; sourceTree = "<group>"; };
+		F4AB8B321ACF29AF00299267 /* CHCountriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountriesTableViewController.h; sourceTree = "<group>"; };
+		F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountriesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,7 @@
 		F499285F1ACDA1A3001EBE47 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F4AB8B311ACF294900299267 /* Countries Table View */,
 				F499280A1ACD9F4F001EBE47 /* ViewController.h */,
 				F499280B1ACD9F4F001EBE47 /* ViewController.m */,
 			);
@@ -200,6 +204,15 @@
 				F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */,
 			);
 			path = "Countries Data Source";
+			sourceTree = "<group>";
+		};
+		F4AB8B311ACF294900299267 /* Countries Table View */ = {
+			isa = PBXGroup;
+			children = (
+				F4AB8B321ACF29AF00299267 /* CHCountriesTableViewController.h */,
+				F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */,
+			);
+			path = "Countries Table View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +321,7 @@
 				F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */,
 				F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */,
 				F49928061ACD9F4F001EBE47 /* main.m in Sources */,
+				F4AB8B341ACF29AF00299267 /* CHCountriesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
