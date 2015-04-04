@@ -18,6 +18,7 @@
 		F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928621ACDA3F4001EBE47 /* CHCountry.m */; };
 		F4AB8B301ACEB1E800299267 /* CHCountriesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */; };
 		F4AB8B341ACF29AF00299267 /* CHCountriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */; };
+		F4AB8B371AD03AD500299267 /* CHCountryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B361AD03AD500299267 /* CHCountryTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountriesDataSource.m; sourceTree = "<group>"; };
 		F4AB8B321ACF29AF00299267 /* CHCountriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountriesTableViewController.h; sourceTree = "<group>"; };
 		F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountriesTableViewController.m; sourceTree = "<group>"; };
+		F4AB8B351AD03AD500299267 /* CHCountryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountryTableViewCell.h; sourceTree = "<group>"; };
+		F4AB8B361AD03AD500299267 /* CHCountryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountryTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 		F499285E1ACDA18A001EBE47 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4AB8B351AD03AD500299267 /* CHCountryTableViewCell.h */,
+				F4AB8B361AD03AD500299267 /* CHCountryTableViewCell.m */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -320,6 +325,7 @@
 				F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */,
 				F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */,
 				F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */,
+				F4AB8B371AD03AD500299267 /* CHCountryTableViewCell.m in Sources */,
 				F49928061ACD9F4F001EBE47 /* main.m in Sources */,
 				F4AB8B341ACF29AF00299267 /* CHCountriesTableViewController.m in Sources */,
 			);
