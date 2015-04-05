@@ -63,8 +63,8 @@
     self.countryNameLabel.text = country.name;
     
     // Test
-    self.countryPopulationLabel.text = @"123,456,789";
-    self.countryRankLabel.text = @"10";
+    self.countryPopulationLabel.text = [self stringFromNumber:country.population];
+    self.countryRankLabel.text = [self stringFromNumber:country.rank];
     self.countryFlagImageView.image = [UIImage imageNamed:@"Apple-icon"];
 
 }
@@ -254,6 +254,20 @@
     
     [self.contentView addConstraint:constraint];
     
+}
+
+
+#pragma mark - string from number
+
+- (NSString *)stringFromNumber:(NSNumber *)number
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSString *stringNumber = [formatter stringFromNumber:number];
+    
+    return stringNumber;
 }
 
 @end
