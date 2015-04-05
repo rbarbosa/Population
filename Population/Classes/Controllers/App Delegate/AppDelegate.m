@@ -10,6 +10,8 @@
 
 #import "CHCountriesDataSource.h"
 
+#import "CHCountriesTableViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,14 +22,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    CHCountriesDataSource *countriesDataSource = [[CHCountriesDataSource alloc] init];
+    CHCountriesTableViewController *countriesTableViewController =
+    [[CHCountriesTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
-//    [countriesDataSource createArrayWithCountries];
-    [countriesDataSource getCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
-        if (success) {
-            NSLog(@"Countries: %@", countries);
-        }
-    }];
+    UINavigationController *navController =
+    [[UINavigationController alloc] initWithRootViewController:countriesTableViewController];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window.rootViewController = navController;
+    
+    [self.window makeKeyAndVisible];
+    
+//    CHCountriesDataSource *countriesDataSource = [[CHCountriesDataSource alloc] init];
+//    
+//    [countriesDataSource getCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
+//        if (success) {
+//            NSLog(@"Countries: %@", countries);
+//        }
+//    }];
     
     return YES;
 }
