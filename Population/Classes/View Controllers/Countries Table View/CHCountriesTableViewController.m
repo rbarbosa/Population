@@ -11,6 +11,7 @@
 #import "CHCountriesDataSource.h"
 #import "CHNetworking.h"
 #import "CHCountry.h"
+#import "CHCountryTableViewCell.h"
 
 NSString * const CellIdentifier = @"countryCell";
 
@@ -81,12 +82,18 @@ NSString * const CellIdentifier = @"countryCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                            forIndexPath:indexPath];
-    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
+//                                                            forIndexPath:indexPath];
+
+    CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc]
+                                    initWithStyle:UITableViewCellStyleDefault
+                                    reuseIdentifier:CellIdentifier];
+
     CHCountry *country = self.countries[indexPath.row];
     
-    cell.textLabel.text = country.name;
+//    cell.textLabel.text = country.name;
+    [cell setUpWithCountry:country];
+    
     
     return cell;
 }
