@@ -29,12 +29,11 @@ NSString * const CellIdentifier = @"countryCell";
 {
     [super viewDidLoad];
     
+    [self setUpTableView];
+    
     self.countriesDataSource = [[CHCountriesDataSource alloc] init];
     
     [self setUpRefreshControl];
-    
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:CellIdentifier];
     
     [self.refreshControl beginRefreshing];
     
@@ -42,12 +41,29 @@ NSString * const CellIdentifier = @"countryCell";
     
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+
+#pragma mark - Set up table view
+
+- (void)setUpTableView
+{
+    // Register class
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:CellIdentifier];
+    
+    CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc] init];
+    
+    [cell layoutIfNeeded];
+    
+    self.tableView.separatorInset = [cell countrySeparatorInset];
+}
 
 #pragma mark - Refresh Control
 
@@ -73,27 +89,19 @@ NSString * const CellIdentifier = @"countryCell";
             [self.tableView reloadData];
         }
     }];
-    
-    
-    
 }
 
 #pragma mark - UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-//                                                            forIndexPath:indexPath];
-
     CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc]
                                     initWithStyle:UITableViewCellStyleDefault
                                     reuseIdentifier:CellIdentifier];
 
     CHCountry *country = self.countries[indexPath.row];
     
-//    cell.textLabel.text = country.name;
     [cell setUpWithCountry:country];
-    
     
     return cell;
 }

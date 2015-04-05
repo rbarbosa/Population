@@ -69,7 +69,20 @@
 
 }
 
+#pragma mark - Set table view separator
 
+- (UIEdgeInsets)countrySeparatorInset
+{
+    CGFloat xInset = CGRectGetMinX(self.countryNameLabel.frame);
+    
+    NSLog(@"Name frame: %f x %f", self.countryNameLabel.frame.origin.x,
+          self.countryNameLabel.frame.origin.y);
+    
+    NSLog(@"xInset: %f", xInset);
+    
+    
+    return UIEdgeInsetsMake(0, xInset, 0, 0);
+}
 
 #pragma mark - Set up labels and image view
 
@@ -257,7 +270,9 @@
 }
 
 
+
 #pragma mark - string from number
+//TODO: Add this to a category
 
 - (NSString *)stringFromNumber:(NSNumber *)number
 {

@@ -14,6 +14,9 @@
 
 @property (nonatomic, strong) CHCountry *country;
 
+
 - (void)setUpWithCountry:(CHCountry *)country;
+
+- (UIEdgeInsets)countrySeparatorInset;
 
 @end
