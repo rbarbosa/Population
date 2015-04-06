@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F415D3A21ACDAC1400193857 /* CHNetworking.m */; };
+		F44827C41AD248DF00B725AF /* CHAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F44827C31AD248DF00B725AF /* CHAPIManager.m */; };
 		F49928061ACD9F4F001EBE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928051ACD9F4F001EBE47 /* main.m */; };
 		F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928081ACD9F4F001EBE47 /* AppDelegate.m */; };
 		F499280C1ACD9F4F001EBE47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F499280B1ACD9F4F001EBE47 /* ViewController.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		F415D3A11ACDAC1400193857 /* CHNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNetworking.h; sourceTree = "<group>"; };
 		F415D3A21ACDAC1400193857 /* CHNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNetworking.m; sourceTree = "<group>"; };
+		F44827C21AD248DF00B725AF /* CHAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAPIManager.h; sourceTree = "<group>"; };
+		F44827C31AD248DF00B725AF /* CHAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAPIManager.m; sourceTree = "<group>"; };
 		F49928001ACD9F4F001EBE47 /* Population.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Population.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49928041ACD9F4F001EBE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49928051ACD9F4F001EBE47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,6 +85,15 @@
 				F415D3A21ACDAC1400193857 /* CHNetworking.m */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		F44827C11AD247C600B725AF /* API Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F44827C21AD248DF00B725AF /* CHAPIManager.h */,
+				F44827C31AD248DF00B725AF /* CHAPIManager.m */,
+			);
+			path = "API Manager";
 			sourceTree = "<group>";
 		};
 		F49927F71ACD9F4F001EBE47 = {
@@ -153,6 +165,7 @@
 		F499282A1ACDA021001EBE47 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F44827C11AD247C600B725AF /* API Manager */,
 				F4AB8B2D1ACEB05300299267 /* Countries Data Source */,
 				F49928291ACD9FAD001EBE47 /* App Delegate */,
 				F415D3A41ACDAC1B00193857 /* Networking */,
@@ -325,6 +338,7 @@
 				F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */,
 				F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */,
 				F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */,
+				F44827C41AD248DF00B725AF /* CHAPIManager.m in Sources */,
 				F4AB8B371AD03AD500299267 /* CHCountryTableViewCell.m in Sources */,
 				F49928061ACD9F4F001EBE47 /* main.m in Sources */,
 				F4AB8B341ACF29AF00299267 /* CHCountriesTableViewController.m in Sources */,

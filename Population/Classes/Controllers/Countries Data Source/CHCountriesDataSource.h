@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-typedef void(^countriesBlock)(BOOL success, NSArray *countries);
+@class CHCountry;
 
 @interface CHCountriesDataSource : NSObject
 
-//- (void)createArrayWithCountries;
+@property (nonatomic, strong) NSArray *countries;
 
-- (void)getCountriesWithCompletionBlock:(countriesBlock)completionBlock;
+
+- (CHCountry *)countryAtIndexPath:(NSIndexPath *)indexPath;
+
+- (NSUInteger)numberOfCountries;
+
 
 @end

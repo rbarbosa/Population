@@ -8,8 +8,9 @@
 
 #import "CHCountriesTableViewController.h"
 
+#import "CHAPIManager.h"
 #import "CHCountriesDataSource.h"
-#import "CHNetworking.h"
+//#import "CHNetworking.h"
 #import "CHCountry.h"
 #import "CHCountryTableViewCell.h"
 
@@ -17,7 +18,9 @@ NSString * const CellIdentifier = @"countryCell";
 
 @interface CHCountriesTableViewController ()
 
-@property(nonatomic, strong) CHCountriesDataSource *countriesDataSource;
+@property (nonatomic, strong) CHCountriesDataSource *countriesDataSource;
+@property (nonatomic, strong) CHAPIManager *apiManager;
+
 @property (nonatomic, strong) NSArray *countries;
 
 @end
@@ -32,6 +35,8 @@ NSString * const CellIdentifier = @"countryCell";
     [self setUpTableView];
     
     self.countriesDataSource = [[CHCountriesDataSource alloc] init];
+    
+    self.apiManager = [[CHAPIManager alloc] init];
     
     [self setUpRefreshControl];
     
@@ -82,9 +87,10 @@ NSString * const CellIdentifier = @"countryCell";
 
 - (void)refresh
 {
-    [self.countriesDataSource getCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
+    [self.apiManager countriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
         if (success) {
-            self.countries = countries;
+//            self.countries = countries;
+            self.countriesDataSource.countries = countries;
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
         }
@@ -99,7 +105,7 @@ NSString * const CellIdentifier = @"countryCell";
                                     initWithStyle:UITableViewCellStyleDefault
                                     reuseIdentifier:CellIdentifier];
 
-    CHCountry *country = self.countries[indexPath.row];
+    CHCountry *country = [self.countriesDataSource countryAtIndexPath:indexPath];
     
     [cell setUpWithCountry:country];
     
@@ -113,7 +119,9 @@ NSString * const CellIdentifier = @"countryCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.countries count];
+//    return [self.countries count];
+    
+    return [self.countriesDataSource numberOfCountries];
 }
 
 

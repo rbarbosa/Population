@@ -6,21 +6,10 @@
 //  Copyright (c) 2015 Rui Barbosa. All rights reserved.
 //
 
+
 #import "CHCountriesDataSource.h"
 
 #import "CHCountry.h"
-#import "CHNetworking.h"
-
-NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparsetutorial.txt";
-
-
-@interface CHCountriesDataSource ()
-
-@property (nonatomic, strong) NSArray *countries;
-
-@property (nonatomic, copy) countriesBlock countriesBlock;
-
-@end
 
 
 
@@ -38,88 +27,19 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
     return self;
 }
 
-- (void)getCountriesWithCompletionBlock:(countriesBlock)completionBlock
+
+
+
+- (CHCountry *)countryAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [self createArrayWithCountriesWithCompletionBlock:completionBlock];
+    CHCountry *country = [self.countries objectAtIndex:indexPath.row];
     
-    self.countriesBlock = completionBlock;
-    
-    [self createArrayWithCountries];
+    return country;
 }
 
-#pragma mark - Create array with countries
-
-- (void)createArrayWithCountries
+- (NSUInteger)numberOfCountries
 {
-    // fetch json
-    // store in an array
-    NSURL *url = [NSURL URLWithString:CountriesURL];
-    [CHNetworking fetchJSONWithURL:url
-                   completionBlock:^(BOOL success, NSDictionary *json) {
-                       if (success) {
-                           NSArray *countries = json[@"worldpopulation"];
-                           [self createCountriesWithArray:countries];
-                           self.countriesBlock(YES, self.countries);
-                        }
-                   }];
+    return [self.countries count];
 }
-
-- (void)createArrayWithCountriesWithCompletionBlock:(countriesBlock)countriesBlock
-{
-    // fetch json
-    // store in an array
-    NSURL *url = [NSURL URLWithString:CountriesURL];
-    [CHNetworking fetchJSONWithURL:url
-                   completionBlock:^(BOOL success, NSDictionary *json) {
-                       if (success) {
-                           NSArray *countries = json[@"worldpopulation"];
-                           [self createCountriesWithArray:countries];
-                           countriesBlock(YES, self.countries);
-                       } else {
-                           countriesBlock(NO, self.countries);
-                       }
-                   }];
-}
-
-- (void)createCountriesWithArray:(NSArray *)countries
-{
-    // Reset array with countries, otherwise will add same countries
-    NSMutableArray *newCountries = [NSMutableArray array];
-    NSLog(@"%s [Line %d] countries: %@ ", __PRETTY_FUNCTION__, __LINE__,countries);
-
-    [countries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSDictionary *country = (NSDictionary *)obj;
-
-        NSString *name = country[@"country"];
-        NSString *flagURLString = country[@"flag"];
-        NSNumber *rank = country[@"rank"];
-        NSString *stringPopulation = country[@"population"];
-        NSNumber *population = [self numberFromString:stringPopulation];
-        
-        // Create Country object
-        CHCountry *newCountry = [[CHCountry alloc] initWithName:name
-                                                  population:population
-                                                        rank:rank
-                                                     flagURL:[NSURL URLWithString:flagURLString]];
-        
-        [newCountries addObject:newCountry];
-    }];
-    
-    // Set the array with countries
-    self.countries = [NSArray arrayWithArray:newCountries];
-}
-
-
-- (NSNumber *)numberFromString:(NSString *)stringNumber
-{
-    // Remove any commas
-    stringNumber = [stringNumber stringByReplacingOccurrencesOfString:@"," withString:@""];
-    
-    NSNumber *number = [NSNumber numberWithDouble:[stringNumber doubleValue]];
-    
-    return number;
-}
-
-
 
 @end
