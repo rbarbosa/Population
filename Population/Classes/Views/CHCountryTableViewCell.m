@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Rui Barbosa. All rights reserved.
 //
 
+
 #import "CHCountryTableViewCell.h"
 
+#import "CHAPIManager.h"
 #import "CHCountry.h"
 
 
@@ -20,6 +22,8 @@
 
 @property (nonatomic, strong) NSArray *views;
 @property (nonatomic, strong) NSDictionary *viewsDictionary;
+
+@property (nonatomic, strong) CHAPIManager *apiManager;
 
 @end
 
@@ -48,6 +52,8 @@
         [self createViewsDictionary];
         
         [self cellAutolayout];
+        
+        self.apiManager = [[CHAPIManager alloc] init];
     }
     
     return self;
@@ -62,7 +68,14 @@
     self.countryNameLabel.text = country.name;
     self.countryPopulationLabel.text = [self stringFromNumber:country.population];
     self.countryRankLabel.text = [self stringFromNumber:country.rank];
-    self.countryFlagImageView.image = [UIImage imageNamed:@"Apple-icon"];
+    
+    
+    __weak __typeof(self)weakSelf = self;
+    [self.apiManager fetchFlagImageForCountry:country
+                          withCompletionBlock:^(UIImage *image) {
+                              __strong __typeof(weakSelf)strongSelf = weakSelf;
+                              strongSelf.countryFlagImageView.image = image;
+                          }];
 }
 
 
@@ -72,6 +85,7 @@
 - (UIEdgeInsets)countrySeparatorInset
 {
     CGFloat xInset = CGRectGetMinX(self.countryNameLabel.frame);
+    
     
     return UIEdgeInsetsMake(0, xInset, 0, 0);
 }
@@ -123,7 +137,9 @@
 {
     UIImageView *imageView = [[UIImageView alloc] init];
     
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    imageView.layer.borderWidth = 1.0f;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.clipsToBounds = YES;
     
     return imageView;
@@ -190,7 +206,7 @@
     [self.contentView addConstraints:constraints];
     
     constraints =
-    [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[flagView(60)]-|"
+    [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[flagView(60@750)]-|"
                                             options:0
                                             metrics:nil
                                               views:self.viewsDictionary];
@@ -199,7 +215,7 @@
     
     
     constraints =
-    [NSLayoutConstraint constraintsWithVisualFormat:@"H:[rankLabel]-|"
+    [NSLayoutConstraint constraintsWithVisualFormat:@"H:[rankLabel]-25-|"
                                             options:0
                                             metrics:nil
                                               views:self.viewsDictionary];
