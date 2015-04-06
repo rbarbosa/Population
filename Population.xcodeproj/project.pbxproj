@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F415D3A21ACDAC1400193857 /* CHNetworking.m */; };
+		F44827C41AD248DF00B725AF /* CHAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F44827C31AD248DF00B725AF /* CHAPIManager.m */; };
 		F49928061ACD9F4F001EBE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928051ACD9F4F001EBE47 /* main.m */; };
 		F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928081ACD9F4F001EBE47 /* AppDelegate.m */; };
-		F499280C1ACD9F4F001EBE47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F499280B1ACD9F4F001EBE47 /* ViewController.m */; };
-		F499280F1ACD9F4F001EBE47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F499280D1ACD9F4F001EBE47 /* Main.storyboard */; };
 		F49928111ACD9F4F001EBE47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49928101ACD9F4F001EBE47 /* Images.xcassets */; };
 		F49928141ACD9F4F001EBE47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */; };
 		F49928201ACD9F4F001EBE47 /* PopulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F499281F1ACD9F4F001EBE47 /* PopulationTests.m */; };
+		F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = F49928621ACDA3F4001EBE47 /* CHCountry.m */; };
+		F4AB8B301ACEB1E800299267 /* CHCountriesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */; };
+		F4AB8B341ACF29AF00299267 /* CHCountriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */; };
+		F4AB8B371AD03AD500299267 /* CHCountryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AB8B361AD03AD500299267 /* CHCountryTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +31,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F415D3A11ACDAC1400193857 /* CHNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNetworking.h; sourceTree = "<group>"; };
+		F415D3A21ACDAC1400193857 /* CHNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNetworking.m; sourceTree = "<group>"; };
+		F44827C21AD248DF00B725AF /* CHAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAPIManager.h; sourceTree = "<group>"; };
+		F44827C31AD248DF00B725AF /* CHAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAPIManager.m; sourceTree = "<group>"; };
 		F49928001ACD9F4F001EBE47 /* Population.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Population.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49928041ACD9F4F001EBE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F49928051ACD9F4F001EBE47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F49928071ACD9F4F001EBE47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F49928081ACD9F4F001EBE47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F499280A1ACD9F4F001EBE47 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F499280B1ACD9F4F001EBE47 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F499280E1ACD9F4F001EBE47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F49928101ACD9F4F001EBE47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F49928131ACD9F4F001EBE47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F49928191ACD9F4F001EBE47 /* PopulationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopulationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F499281E1ACD9F4F001EBE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F499281F1ACD9F4F001EBE47 /* PopulationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopulationTests.m; sourceTree = "<group>"; };
+		F49928611ACDA3F4001EBE47 /* CHCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountry.h; sourceTree = "<group>"; };
+		F49928621ACDA3F4001EBE47 /* CHCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountry.m; sourceTree = "<group>"; };
+		F4AB8B2E1ACEB1E800299267 /* CHCountriesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountriesDataSource.h; sourceTree = "<group>"; };
+		F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountriesDataSource.m; sourceTree = "<group>"; };
+		F4AB8B321ACF29AF00299267 /* CHCountriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountriesTableViewController.h; sourceTree = "<group>"; };
+		F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountriesTableViewController.m; sourceTree = "<group>"; };
+		F4AB8B351AD03AD500299267 /* CHCountryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCountryTableViewCell.h; sourceTree = "<group>"; };
+		F4AB8B361AD03AD500299267 /* CHCountryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCountryTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F415D3A41ACDAC1B00193857 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F415D3A11ACDAC1400193857 /* CHNetworking.h */,
+				F415D3A21ACDAC1400193857 /* CHNetworking.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F44827C11AD247C600B725AF /* API Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F44827C21AD248DF00B725AF /* CHAPIManager.h */,
+				F44827C31AD248DF00B725AF /* CHAPIManager.m */,
+			);
+			path = "API Manager";
+			sourceTree = "<group>";
+		};
 		F49927F71ACD9F4F001EBE47 = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +160,10 @@
 		F499282A1ACDA021001EBE47 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F44827C11AD247C600B725AF /* API Manager */,
+				F4AB8B2D1ACEB05300299267 /* Countries Data Source */,
 				F49928291ACD9FAD001EBE47 /* App Delegate */,
+				F415D3A41ACDAC1B00193857 /* Networking */,
 			);
 			name = Controllers;
 			path = Classes/Controllers;
@@ -138,6 +172,8 @@
 		F499285D1ACDA175001EBE47 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F49928611ACDA3F4001EBE47 /* CHCountry.h */,
+				F49928621ACDA3F4001EBE47 /* CHCountry.m */,
 			);
 			name = Models;
 			path = Classes/Models;
@@ -146,6 +182,8 @@
 		F499285E1ACDA18A001EBE47 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4AB8B351AD03AD500299267 /* CHCountryTableViewCell.h */,
+				F4AB8B361AD03AD500299267 /* CHCountryTableViewCell.m */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -154,8 +192,7 @@
 		F499285F1ACDA1A3001EBE47 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F499280A1ACD9F4F001EBE47 /* ViewController.h */,
-				F499280B1ACD9F4F001EBE47 /* ViewController.m */,
+				F4AB8B311ACF294900299267 /* Countries Table View */,
 			);
 			name = "View Controllers";
 			path = "Classes/View Controllers";
@@ -164,11 +201,28 @@
 		F49928601ACDA24C001EBE47 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F499280D1ACD9F4F001EBE47 /* Main.storyboard */,
 				F49928101ACD9F4F001EBE47 /* Images.xcassets */,
 				F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4AB8B2D1ACEB05300299267 /* Countries Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				F4AB8B2E1ACEB1E800299267 /* CHCountriesDataSource.h */,
+				F4AB8B2F1ACEB1E800299267 /* CHCountriesDataSource.m */,
+			);
+			path = "Countries Data Source";
+			sourceTree = "<group>";
+		};
+		F4AB8B311ACF294900299267 /* Countries Table View */ = {
+			isa = PBXGroup;
+			children = (
+				F4AB8B321ACF29AF00299267 /* CHCountriesTableViewController.h */,
+				F4AB8B331ACF29AF00299267 /* CHCountriesTableViewController.m */,
+			);
+			path = "Countries Table View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +305,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F499280F1ACD9F4F001EBE47 /* Main.storyboard in Resources */,
 				F49928141ACD9F4F001EBE47 /* LaunchScreen.xib in Resources */,
 				F49928111ACD9F4F001EBE47 /* Images.xcassets in Resources */,
 			);
@@ -271,9 +324,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F499280C1ACD9F4F001EBE47 /* ViewController.m in Sources */,
+				F4AB8B301ACEB1E800299267 /* CHCountriesDataSource.m in Sources */,
+				F49928631ACDA3F4001EBE47 /* CHCountry.m in Sources */,
 				F49928091ACD9F4F001EBE47 /* AppDelegate.m in Sources */,
+				F415D3A31ACDAC1400193857 /* CHNetworking.m in Sources */,
+				F44827C41AD248DF00B725AF /* CHAPIManager.m in Sources */,
+				F4AB8B371AD03AD500299267 /* CHCountryTableViewCell.m in Sources */,
 				F49928061ACD9F4F001EBE47 /* main.m in Sources */,
+				F4AB8B341ACF29AF00299267 /* CHCountriesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +354,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F499280D1ACD9F4F001EBE47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F499280E1ACD9F4F001EBE47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F49928121ACD9F4F001EBE47 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -464,6 +514,7 @@
 				F49928251ACD9F4F001EBE47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F49928261ACD9F4F001EBE47 /* Build configuration list for PBXNativeTarget "PopulationTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +523,7 @@
 				F49928281ACD9F4F001EBE47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

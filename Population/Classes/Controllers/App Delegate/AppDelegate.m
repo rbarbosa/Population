@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "CHCountriesTableViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    CHCountriesTableViewController *countriesTableViewController =
+    [[CHCountriesTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    UINavigationController *navController =
+    [[UINavigationController alloc] initWithRootViewController:countriesTableViewController];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window.rootViewController = navController;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
