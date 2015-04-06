@@ -8,13 +8,60 @@
 
 #import "CHNetworking.h"
 
-
+typedef void(^taskBlock)(NSData *data, NSURLResponse *response, NSError *error);
 
 @implementation CHNetworking
 
 
-+ (void)fetchJSONWithURL:(NSURL *)url
+
+// Public methods
+
+#pragma mark - Fetch image
+
++ (void)fetchImageWithURL:(NSURL *)imageURL completionBlock:(imageCompletionBlock)completion
 {
+    [CHNetworking taskWithURL:imageURL
+              completionBlock:^(NSData *data, NSURLResponse *response, NSError *error) {
+                  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                  if (httpResponse.statusCode == 200) {
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          UIImage *image = [UIImage imageWithData:data];
+                          completion(image, error);
+                      });
+                  }
+              }];
+}
+
+
+
+#pragma mark - Fetch json
+
++ (void)fetchJSONWithURL:(NSURL *)url withCompletionBlock:(JSONCompletionBlock)completion
+{
+    [CHNetworking taskWithURL:url
+              completionBlock:^(NSData *data, NSURLResponse *response, NSError *error) {
+                  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                  if (httpResponse.statusCode == 200) {
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          [CHNetworking handleJSONResults:data
+                                      withCompletionBlock:completion];
+                      });
+                  }
+              }];
+}
+
+
+
+// Private methods
+
+#pragma mark - Create task for url
+
++ (void)taskWithURL:(NSURL *)url completionBlock:(taskBlock)completion
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -24,25 +71,17 @@
     NSURLSessionDataTask *task =
     [session dataTaskWithRequest:request
                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                   // Check response
-                   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                   if (httpResponse.statusCode == 200) {
-                       dispatch_async(dispatch_get_main_queue(), ^{
-                           [CHNetworking handleDataResults:data];
-                       });
-                   } else {
-                       // There was error
-                       NSString *body = [[NSString alloc] initWithData:data
-                                                              encoding:NSUTF8StringEncoding];
-                       // Create alert
-                       NSLog(@"ERROR!\n Received HTTP %ld: %@", (long)httpResponse.statusCode, body);
-                   }
+                   completion(data, response, error);
                }];
     
     [task resume];
 }
 
-+ (void)handleDataResults:(NSData *)data
+
+
+#pragma mark - Handle JSON results
+
++ (void)handleJSONResults:(NSData *)data withCompletionBlock:(JSONCompletionBlock)completion
 {
     NSError *JSONError;
     
@@ -51,66 +90,10 @@
                                                                error:&JSONError];
     
     if (response) {
-        NSLog(@"Response: %@", response);
+        completion(response, JSONError);
     } else {
         NSLog(@"ERROR: %@", JSONError);
     }
-    
 }
 
-
-
-
-+ (void)fetchJSONWithURL:(NSURL *)url completionBlock:(completionBlock)completion
-{
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    
-    NSURLSessionDataTask *task =
-    [session dataTaskWithRequest:request
-               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                   // Check response
-                   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                   if (httpResponse.statusCode == 200) {
-                       dispatch_async(dispatch_get_main_queue(), ^{
-                           [CHNetworking handleDataResults:data
-                                       withCompletionBlock:completion];
-                       });
-                   } else {
-                       // There was error
-                       NSString *body = [[NSString alloc] initWithData:data
-                                                              encoding:NSUTF8StringEncoding];
-                       // Create alert
-                       NSLog(@"ERROR!\n Received HTTP %ld: %@", (long)httpResponse.statusCode, body);
-                       
-                       completion(NO, nil);
-                   }
-               }];
-    
-    [task resume];
-    
-}
-
-
-
-+ (void)handleDataResults:(NSData *)data withCompletionBlock:(completionBlock)completion
-{
-    NSError *JSONError;
-    
-    NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingAllowFragments
-                                                               error:&JSONError];
-    
-    if (response) {
-        NSLog(@"Response: %@", response);
-        completion(YES, response);
-    } else {
-        NSLog(@"ERROR: %@", JSONError);
-        completion(NO, nil);
-    }
-    
-}
 @end

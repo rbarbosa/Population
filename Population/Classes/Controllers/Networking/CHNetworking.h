@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-
-typedef void(^completionBlock)(BOOL success, NSDictionary *json);
-
+typedef void(^imageCompletionBlock)(UIImage *image, NSError *error);
+typedef void(^JSONCompletionBlock)(NSDictionary *json, NSError *error);
 
 @interface CHNetworking : NSObject
 
-+ (void)fetchJSONWithURL:(NSURL *)url;
++ (void)fetchJSONWithURL:(NSURL *)url withCompletionBlock:(JSONCompletionBlock)completion;
 
-+ (void)fetchJSONWithURL:(NSURL *)url completionBlock:(completionBlock)completion;
++ (void)fetchImageWithURL:(NSURL *)imageURL completionBlock:(imageCompletionBlock)completion;
 
 @end
