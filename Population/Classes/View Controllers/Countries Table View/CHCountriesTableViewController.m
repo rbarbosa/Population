@@ -10,7 +10,6 @@
 
 #import "CHAPIManager.h"
 #import "CHCountriesDataSource.h"
-//#import "CHNetworking.h"
 #import "CHCountry.h"
 #import "CHCountryTableViewCell.h"
 
@@ -43,7 +42,6 @@ NSString * const CellIdentifier = @"countryCell";
     [self.refreshControl beginRefreshing];
     
     [self refresh];
-    
 }
 
 
@@ -59,18 +57,18 @@ NSString * const CellIdentifier = @"countryCell";
 
 - (void)setUpTableView
 {
-    // Register class
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:CellIdentifier];
+    self.title = NSLocalizedString(@"Countries", nil);
     
-//    CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    
-//    [cell updateConstraintsIfNeeded];
-//    [cell.contentView updateConstraintsIfNeeded];
-//    [cell layoutIfNeeded];
-//    
-//    self.tableView.separatorInset = [cell countrySeparatorInset];
+    self.tableView.allowsSelection = NO;
+    
+    CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc] init];
+    
+    [cell layoutIfNeeded];
+    
+    self.tableView.separatorInset = [cell countrySeparatorInset];
 }
+
+
 
 #pragma mark - Refresh Control
 
@@ -89,13 +87,30 @@ NSString * const CellIdentifier = @"countryCell";
 
 - (void)refresh
 {
+    __weak __typeof(self)weakSelf = self;
     [self.apiManager fetchCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
         if (success) {
-            self.countriesDataSource.countries = countries;
+            strongSelf.countriesDataSource.countries = countries;
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
+            [self updateTitle];
         }
     }];
+}
+
+
+
+#pragma mark - Update title
+
+- (void)updateTitle
+{
+    NSString *title =  NSLocalizedString(@"Countries", nil);
+    
+    title = [title stringByAppendingFormat:@" - %ld",
+     [self.countriesDataSource numberOfCountries]];
+    
+    self.title = title;
 }
 
 
@@ -104,10 +119,13 @@ NSString * const CellIdentifier = @"countryCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc]
-                                    initWithStyle:UITableViewCellStyleDefault
-                                    reuseIdentifier:CellIdentifier];
+    CHCountryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
+    if (!cell) {
+        cell = [[CHCountryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                             reuseIdentifier:CellIdentifier];
+    }
+    
     CHCountry *country = [self.countriesDataSource countryAtIndexPath:indexPath];
     
     [cell setUpWithCountry:country];
@@ -130,6 +148,9 @@ NSString * const CellIdentifier = @"countryCell";
 
 #pragma mark - TableViewDelegate methods
 
-
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80.0f;
+}
 
 @end
