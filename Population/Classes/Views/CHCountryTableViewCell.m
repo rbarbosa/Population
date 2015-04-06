@@ -35,10 +35,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        self.countryNameLabel = [self getCountryNameLabel];
-        self.countryPopulationLabel = [self getCoutryPopulationLabel];
-        self.countryRankLabel = [self getCountryRankLabel];
-        self.countryFlagImageView = [self getCountryImageView];
+        self.countryNameLabel = [self nameLabel];
+        self.countryPopulationLabel = [self populationLabel];
+        self.countryRankLabel = [self rankLabel];
+        self.countryFlagImageView = [self flagImageView];
         
         [self createArrayWithViews];
         [self addViewsToCell];
@@ -59,14 +59,10 @@
 
 - (void)setUpWithCountry:(CHCountry *)country
 {
-    NSLog(@"COuntry: %@", country);
     self.countryNameLabel.text = country.name;
-    
-    // Test
     self.countryPopulationLabel.text = [self stringFromNumber:country.population];
     self.countryRankLabel.text = [self stringFromNumber:country.rank];
     self.countryFlagImageView.image = [UIImage imageNamed:@"Apple-icon"];
-
 }
 
 
@@ -84,7 +80,7 @@
 
 #pragma mark - Set up labels and image view
 
-- (UILabel *)getCountryNameLabel
+- (UILabel *)nameLabel
 {
     UILabel *nameLabel = [[UILabel alloc] init];
     
@@ -97,7 +93,7 @@
 }
 
 
-- (UILabel *)getCoutryPopulationLabel
+- (UILabel *)populationLabel
 {
     UILabel *populationLabel = [[UILabel alloc] init];
     
@@ -110,7 +106,7 @@
 }
 
 
-- (UILabel *)getCountryRankLabel
+- (UILabel *)rankLabel
 {
     UILabel *rankLabel = [[UILabel alloc] init];
     
@@ -123,7 +119,7 @@
 }
 
 
-- (UIImageView *)getCountryImageView
+- (UIImageView *)flagImageView
 {
     UIImageView *imageView = [[UIImageView alloc] init];
     
