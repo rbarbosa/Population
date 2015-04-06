@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "CHCountriesDataSource.h"
-
 #import "CHCountriesTableViewController.h"
 
 @interface AppDelegate ()
@@ -33,14 +31,6 @@
     self.window.rootViewController = navController;
     
     [self.window makeKeyAndVisible];
-    
-//    CHCountriesDataSource *countriesDataSource = [[CHCountriesDataSource alloc] init];
-//    
-//    [countriesDataSource getCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
-//        if (success) {
-//            NSLog(@"Countries: %@", countries);
-//        }
-//    }];
     
     return YES;
 }
