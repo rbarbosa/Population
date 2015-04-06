@@ -14,6 +14,6 @@ typedef void(^countriesBlock)(BOOL success, NSArray *countries);
 
 @interface CHAPIManager : NSObject
 
-- (void)countriesWithCompletionBlock:(countriesBlock)completionBlock;
+- (void)fetchCountriesWithCompletionBlock:(countriesBlock)completionBlock;
 
 @end

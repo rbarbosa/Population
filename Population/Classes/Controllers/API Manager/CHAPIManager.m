@@ -29,7 +29,7 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
 
 #pragma mark - Get countries
 
-- (void)countriesWithCompletionBlock:(countriesBlock)completionBlock
+- (void)fetchCountriesWithCompletionBlock:(countriesBlock)completionBlock
 {
     [self arrayWithCountriesWithCompletionBlock:completionBlock];
 }

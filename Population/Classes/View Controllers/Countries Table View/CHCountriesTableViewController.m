@@ -89,7 +89,7 @@ NSString * const CellIdentifier = @"countryCell";
 
 - (void)refresh
 {
-    [self.apiManager countriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
+    [self.apiManager fetchCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
         if (success) {
             self.countriesDataSource.countries = countries;
             [self.refreshControl endRefreshing];
