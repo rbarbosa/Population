@@ -88,13 +88,15 @@ NSString * const CellIdentifier = @"countryCell";
 - (void)refresh
 {
     __weak __typeof(self)weakSelf = self;
-    [self.apiManager fetchCountriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
+    [self.apiManager fetchCountriesWithCompletionBlock:^(NSArray *countries, NSError *error) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        if (success) {
+        [self.refreshControl endRefreshing];
+        if (!error) {
             strongSelf.countriesDataSource.countries = countries;
-            [self.refreshControl endRefreshing];
             [self.tableView reloadData];
             [self updateTitle];
+        } else {
+            [self showAlertError:error];
         }
     }];
 }
@@ -114,6 +116,25 @@ NSString * const CellIdentifier = @"countryCell";
 }
 
 
+#pragma mark - Alert with error
+
+- (void)showAlertError:(NSError *)error
+{
+    NSString *title =  NSLocalizedString(@"Error", nil);
+    NSString *message = error.localizedDescription;
+    
+    UIAlertController *alertController =
+    [UIAlertController alertControllerWithTitle:title
+                                        message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:nil];
+    [alertController addAction:defaultAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 #pragma mark - UITableViewDataSource methods
 

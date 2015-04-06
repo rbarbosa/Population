@@ -48,6 +48,8 @@ typedef void(^taskBlock)(NSData *data, NSURLResponse *response, NSError *error);
                           [CHNetworking handleJSONResults:data
                                       withCompletionBlock:completion];
                       });
+                  } else {
+                      completion(nil, error);
                   }
               }];
 }
@@ -90,8 +92,9 @@ typedef void(^taskBlock)(NSData *data, NSURLResponse *response, NSError *error);
                                                                error:&JSONError];
     
     if (response) {
-        completion(response, JSONError);
+        completion(response, nil);
     } else {
+        completion(nil, JSONError);
         NSLog(@"ERROR: %@", JSONError);
     }
 }

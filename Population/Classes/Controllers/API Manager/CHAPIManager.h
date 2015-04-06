@@ -11,7 +11,7 @@
 
 @class CHCountry;
 
-typedef void(^countriesBlock)(BOOL success, NSArray *countries);
+typedef void(^countriesBlock)(NSArray *countries, NSError *error);
 typedef void(^imageBlock)(UIImage *image);
 
 

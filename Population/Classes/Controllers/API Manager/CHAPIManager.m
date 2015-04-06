@@ -72,9 +72,9 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
                    if (!error) {
                        NSArray *countries = json[@"worldpopulation"];
                        [self createCountriesWithArray:countries];
-                       countriesBlock(YES, self.countries);
+                       countriesBlock(self.countries, nil);
                    } else {
-                       countriesBlock(NO, self.countries);
+                       countriesBlock(nil, error);
                    }
                }];
 }
