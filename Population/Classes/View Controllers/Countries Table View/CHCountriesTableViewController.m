@@ -63,11 +63,13 @@ NSString * const CellIdentifier = @"countryCell";
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:CellIdentifier];
     
-    CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc] init];
-    
-    [cell layoutIfNeeded];
-    
-    self.tableView.separatorInset = [cell countrySeparatorInset];
+//    CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    
+//    [cell updateConstraintsIfNeeded];
+//    [cell.contentView updateConstraintsIfNeeded];
+//    [cell layoutIfNeeded];
+//    
+//    self.tableView.separatorInset = [cell countrySeparatorInset];
 }
 
 #pragma mark - Refresh Control
@@ -89,13 +91,14 @@ NSString * const CellIdentifier = @"countryCell";
 {
     [self.apiManager countriesWithCompletionBlock:^(BOOL success, NSArray *countries) {
         if (success) {
-//            self.countries = countries;
             self.countriesDataSource.countries = countries;
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
         }
     }];
 }
+
+
 
 #pragma mark - UITableViewDataSource methods
 
@@ -112,15 +115,15 @@ NSString * const CellIdentifier = @"countryCell";
     return cell;
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return [self.countries count];
-    
     return [self.countriesDataSource numberOfCountries];
 }
 
