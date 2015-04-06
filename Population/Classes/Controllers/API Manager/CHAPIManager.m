@@ -25,6 +25,7 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
 
 @implementation CHAPIManager
 
+
 // Public methods
 
 #pragma mark - Get countries
@@ -35,30 +36,54 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
 }
 
 
+#pragma mark - Get flag image
+
+- (void)fetchFlagImageForCountry:(CHCountry *)country withCompletionBlock:(imageBlock)completion
+{
+    [CHNetworking fetchImageWithURL:country.flagURL
+                    completionBlock:^(UIImage *image, NSError *error) {
+                        if (!error) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                completion(image);
+                            });
+                        } else {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                UIImage *flagImage = [UIImage imageNamed:@"Apple-icon"];
+                                completion(flagImage);
+                            });
+                        }
+                    }];
+}
+
+
+
+// Private methods
+
+#pragma mark - Array with countries
+
 - (void)arrayWithCountriesWithCompletionBlock:(countriesBlock)countriesBlock
 {
     // fetch json
     // store in an array
     NSURL *url = [NSURL URLWithString:CountriesURL];
+    
     [CHNetworking fetchJSONWithURL:url
-                   completionBlock:^(BOOL success, NSDictionary *json) {
-                       if (success) {
-                           NSArray *countries = json[@"worldpopulation"];
-                           [self createCountriesWithArray:countries];
-                           countriesBlock(YES, self.countries);
-                       } else {
-                           countriesBlock(NO, self.countries);
-                       }
-                   }];
+               withCompletionBlock:^(NSDictionary *json, NSError *error) {
+                   if (!error) {
+                       NSArray *countries = json[@"worldpopulation"];
+                       [self createCountriesWithArray:countries];
+                       countriesBlock(YES, self.countries);
+                   } else {
+                       countriesBlock(NO, self.countries);
+                   }
+               }];
 }
-
 
 
 - (void)createCountriesWithArray:(NSArray *)countries
 {
     // Reset array with countries, otherwise will add same countries
     NSMutableArray *newCountries = [NSMutableArray array];
-    NSLog(@"%s [Line %d] countries: %@ ", __PRETTY_FUNCTION__, __LINE__,countries);
     
     [countries enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSDictionary *country = (NSDictionary *)obj;
@@ -96,4 +121,5 @@ NSString * const CountriesURL = @"http://www.androidbegin.com/tutorial/jsonparse
     
     return number;
 }
+
 @end

@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+@class CHCountry;
 
 typedef void(^countriesBlock)(BOOL success, NSArray *countries);
+typedef void(^imageBlock)(UIImage *image);
 
 
 @interface CHAPIManager : NSObject
 
 - (void)fetchCountriesWithCompletionBlock:(countriesBlock)completionBlock;
+
+- (void)fetchFlagImageForCountry:(CHCountry *)country withCompletionBlock:(imageBlock)completion;
 
 @end
