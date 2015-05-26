@@ -61,6 +61,10 @@ NSString * const CellIdentifier = @"countryCell";
     
     self.tableView.allowsSelection = NO;
     
+    // Register cell class
+    [self.tableView registerClass:[CHCountryTableViewCell class]
+           forCellReuseIdentifier:CellIdentifier];
+    
     CHCountryTableViewCell *cell = [[CHCountryTableViewCell alloc] init];
     
     [cell layoutIfNeeded];
@@ -142,10 +146,10 @@ NSString * const CellIdentifier = @"countryCell";
 {
     CHCountryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    if (!cell) {
-        cell = [[CHCountryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                             reuseIdentifier:CellIdentifier];
-    }
+//    if (!cell) {
+//        cell = [[CHCountryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+//                                             reuseIdentifier:CellIdentifier];
+//    }
     
     CHCountry *country = [self.countriesDataSource countryAtIndexPath:indexPath];
     
