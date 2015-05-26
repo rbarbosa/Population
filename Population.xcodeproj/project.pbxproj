@@ -235,6 +235,7 @@
 				F49927FC1ACD9F4F001EBE47 /* Sources */,
 				F49927FD1ACD9F4F001EBE47 /* Frameworks */,
 				F49927FE1ACD9F4F001EBE47 /* Resources */,
+				F46AE8E51B14CA6E0024A04A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -318,6 +319,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F46AE8E51B14CA6E0024A04A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n#\n# post-commit\n#\n# This script increments the CFBundleVersion for each successful commit\n#\n\nplist=\"./XYZZY/XYZZY-Info.plist\"\nbuildnum=$(/usr/libexec/Plistbuddy -c \"Print CFBundleVersion\" \"$plist\")\nif [ -z \"$buildnum\" ]; then\nexit 1\nfi\nbuildnumplus=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnumplus\" \"$plist\"\n\necho $(date) \"- Incremented CFBundleVersion to\" $buildnumplus >> hookLog.txt";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F49927FC1ACD9F4F001EBE47 /* Sources */ = {
